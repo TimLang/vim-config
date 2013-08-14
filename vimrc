@@ -41,6 +41,11 @@ set cindent shiftwidth=2
 set autoindent shiftwidth=2
 filetype plugin indent on
 
+"paste mode on terminal vim
+nnoremap <F2> :set invpaste paste?<CR>
+imap <F2> <C-O>:set invpaste paste?<CR>
+set pastetoggle=<F2>
+
 map <F6> :TagbarToggle<CR>
 " 把 F7 映射到 启动MRU插件
 map <F7> :MRU<CR>
