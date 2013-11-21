@@ -1,4 +1,8 @@
 
+if has("gui_running")
+    set guioptions=egmrt
+endif
+
 set guifont=Monaco:h12
 " syntax highlighting
 set background=dark
