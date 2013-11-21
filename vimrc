@@ -214,3 +214,26 @@ if has("autocmd")
     au WinEnter * set cursorcolumn
 endif
 
+" 编译并运行
+func! Compile_Run_Code()
+    exec "w"
+    if &filetype == "c"
+        if g:isWIN
+            exec "!tcc %:t && %:r.exe"
+        else
+            exec "!tcc %:t && ./%:r"
+        endif
+    elseif &filetype == "php"
+        exec "!php %:t"
+    elseif &filetype == "ruby"
+        exec "!ruby %:t"
+    elseif &filetype == "coffee"
+        exec "!coffee %:t"
+    elseif &filetype == "javascript"
+        exec "!node %:t"
+    elseif &filetype == "sh"
+        exec "!bash %:t"
+    endif
+endfunc
+
+nnoremap <silent> <leader>ff :call Compile_Run_Code()<cr>
