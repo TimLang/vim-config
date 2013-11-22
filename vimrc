@@ -147,6 +147,9 @@ Bundle "tpope/vim-repeat"
 "Minibufferexpoler
 "Bundle fholgado/minibufexpl.vim"
 
+"c && c++
+Bundle "vim-scripts/c.vim"
+
 noremap <C-W><C-U> :CtrlPMRU<CR>
 nnoremap <C-W>u :CtrlPMRU<CR>
 
@@ -222,11 +225,15 @@ endif
 func! Compile_Run_Code()
     exec "w"
     if &filetype == "c"
-        if g:isWIN
-            exec "!tcc %:t && %:r.exe"
-        else
-            exec "!tcc %:t && ./%:r"
-        endif
+        exec "!gcc % -o %< -lm && ./%<"
+    elseif &filetype == "cpp"
+        exec "!g++ % -o %< && ./%<"
+    elseif &filetype == "java"
+        exec "!javac %"
+        exec "!java %<"
+    elseif &filetype == 'py'
+        exec "!python %"
+        exec "!python %<"
     elseif &filetype == "php"
         exec "!php %:t"
     elseif &filetype == "ruby"
@@ -240,4 +247,12 @@ func! Compile_Run_Code()
     endif
 endfunc
 
-nnoremap <silent> <leader>ff :call Compile_Run_Code()<cr>
+nnoremap <silent> <leader>rr :call Compile_Run_Code()<cr>
+
+"C,C++的调试
+map <F10> :call Rungdb()<CR>
+func! Rungdb()
+    exec "w"
+    exec "!g++ % -g -o %<"
+    exec "!gdb ./%<"
+endfunc
