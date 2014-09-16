@@ -85,6 +85,8 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+":5,10Align = //Align on '=' signs"
+Bundle "vim-scripts/Align"
 Bundle "pangloss/vim-javascript"
 Bundle "taglist.vim"
 Bundle "jsbeautify"
