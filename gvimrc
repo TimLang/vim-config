@@ -19,6 +19,9 @@ if has('gui_macvim')
   noremap <D-8> 8gt
   noremap <D-9> 9gt
   noremap <D-0> :tablast<cr>
+  "swith macvim window with cmd+left or right arrow
+  nmap <D-Right> :maca _cycleWindowsBackwards:<CR>
+  nmap <D-Left> :maca _cycleWindows:<CR>
 else
   noremap <a-1> 1gt
   noremap <a-2> 2gt
