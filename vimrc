@@ -1,9 +1,9 @@
-
 if has("gui_running")
     set guioptions=egmrt
 endif
 
 set guifont=Monaco:h12
+"set guifont=Menlo:h12
 " syntax highlighting
 set background=dark
 " you can use `dark` or `light` as your background
@@ -66,10 +66,26 @@ inoremap<C-k> <C-X><C-K>
 "javascript代码补全，使用ctrl+x o"
 autocmd FileType javascrīpt set omnifunc=javascrīptcomplete#CompleteJS
 
+autocmd FileType javascrīpt set sw=4
+autocmd FileType javascrīpt set ts=4
+autocmd FileType javascrīpt set sts=4
+
+autocmd FileType python set sw=4
+autocmd FileType python set ts=4
+autocmd FileType python set sts=4
+" SnipMate
+autocmd FileType python set ft=python.django
+autocmd FileType html set ft=htmldjango.html
+
+autocmd User Rails Rnavcommand service         app/services                           -glob=**/*                    -suffix=.rb
 " 打开javascript折叠
 let b:javascript_fold=1
 " " 打开javascript对dom、html和css的支持
 let javascript_enable_domhtmlcss=1
+"The following variables control certain syntax highlighting plugins. You can add them to your .vimrc to enable their features.
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_ngdoc = 1
+let g:javascript_plugin_flow = 1
 
 "node.js 字典"
 au FileType nodejs set dictionary+=$HOME/.vim/dict/node.dict
@@ -85,14 +101,14 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-":5,10Align = //Align on '=' signs"
-Bundle "vim-scripts/Align"
+Bundle 'posva/vim-vue'
+"解决中文输入法的问题
+Bundle "vim-scripts/fcitx.vim"
 Bundle "pangloss/vim-javascript"
-Bundle "taglist.vim"
+"Bundle "taglist.vim"
 Bundle "jsbeautify"
 Bundle "scrooloose/nerdtree"
 Bundle 'tpope/vim-surround'
-Bundle 'taglist.vim'
 "Bundle 'hallettj/jslint.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'ervandew/supertab'
@@ -104,8 +120,7 @@ Bundle 'tpope/vim-rails'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'scrooloose/nerdcommenter'
 "snipmate dependencies
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
+"Bundle "tomtom/tlib_vim"
 "ack better performance than grep
 Bundle "mileszs/ack.vim"
 "html/xml edit
@@ -114,7 +129,7 @@ Bundle "vim-scripts/xml.vim"
 "MRU provides an easy access to a list of recently opend/edited files{
 Bundle "vim-scripts/mru.vim"
 "html plugins
-Bundle "mattn/zencoding-vim"
+Bundle "mattn/emmet-vim"
 "git plugins
 Bundle "motemen/git-vim"
 "popular git plugins
@@ -130,8 +145,8 @@ Bundle "majutsushi/tagbar"
 
 "snipmate requires snippets
 "dependencies
-Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
+Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "honza/vim-snippets"
 Bundle "garbas/vim-snipmate"
 "easymotion
@@ -151,10 +166,62 @@ Bundle "tpope/vim-repeat"
 
 "c && c++
 Bundle "vim-scripts/c.vim"
+"es6
+Bundle "isRuslan/vim-es6"
+"react
+Bundle "mxw/vim-jsx"
+Bundle "justinj/vim-react-snippets"
+Bundle "SirVer/ultisnips"
+
+
+"elixir plugins
+Bundle 'elixir-lang/vim-elixir'
+Bundle 'slashmili/alchemist.vim'
+Bundle "TimLang/vim-phoenix"
+Bundle 'tpope/vim-projectionist'
+
+"weixin
+Bundle 'chemzqm/wxapp.vim'
+
+"typescript
+Bundle 'leafgarland/typescript-vim'
+Bundle 'Shougo/vimproc.vim'
+Bundle 'Quramy/tsuquyomi'
+"PaperColor Theme
+Bundle 'NLKNguyen/papercolor-theme'
+
+"elm
+Bundle "lambdatoast/elm.vim"
+
+Bundle "bronson/vim-trailing-whitespace"
+
+Bundle "fatih/vim-go"
+
+"Python
+"Bundle 'vim-scripts/python.vim'
+"Bundle 'Valloric/YouCompleteMe'
+Bundle 'jmcomets/vim-pony'
+
+"Bundle 'tweekmonster/django-plus.vim'
+"Bundle 'mjbrownie/vim-htmldjango_omnicomplete'
+"Bundle 'vim-scripts/django.vim'
+
+"YouCompleteMe
+let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
+let g:ycm_use_ultisnips_completer = 1 " Default 1, just ensure
+let g:ycm_seed_identifiers_with_syntax = 1 " Completion for programming language's keyword
+let g:ycm_complete_in_comments = 1 " Completion in comments
+let g:ycm_complete_in_strings = 1 " Completion in string
+
+
+"weixin
+nmap <leader>r <Plug>WxappReload
 
 noremap <C-W><C-U> :CtrlPMRU<CR>
 nnoremap <C-W>u :CtrlPMRU<CR>
 
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+let g:syntastic_javascript_checkers = ['eslint']
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|.rvm$'
 let g:ctrlp_working_path_mode=0
 let g:ctrlp_match_window_bottom=1
@@ -162,6 +229,8 @@ let g:ctrlp_max_height=15
 let g:ctrlp_match_window_reversed=0
 let g:ctrlp_mruf_max=500
 let g:ctrlp_follow_symlinks=1
+
+"elixir web framework phoenix
 
 "supertabg:SuperTabRetainCompletionType的值缺省为1，意为记住你上次的补全方式，直到使用其它的补全命令改变它；如果把它设成2，意味着记住上次的补全方式，直到按ESC退出插入模式为止；如果设为0，意味着不记录上次的补全方式。
 "g:SuperTabDefaultCompletionType的值设置缺省的补全方式，缺省为CTRL-P。
@@ -193,10 +262,15 @@ let Tlist_Auto_Open = 0
 let MRU_Max_Entries = 50
 "}
 
-"zencoding{
-let g:user_zen_expandabbr_key = '<c-d>'   "设置为ctrl+d 扩展
+"emmet-vim
+let g:user_emmet_leader_key = '<c-d>'   "设置为ctrl+d 扩展
+"let g:user_emmet_install_global = 0
+"autocmd FileType html,css EmmetInstall
 "
 "}
+
+" add jbuilder syntax highlighting
+au BufNewFile,BufRead *.json.jbuilder set ft=ruby
 
 "move to last edited
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
@@ -258,3 +332,39 @@ func! Rungdb()
     exec "!g++ % -g -o %<"
     exec "!gdb ./%<"
 endfunc
+
+"Django
+let g:last_relative_dir = ''
+nnoremap \1 :call RelatedFile ("models.py")<cr>
+nnoremap \2 :call RelatedFile ("views.py")<cr>
+nnoremap \3 :call RelatedFile ("urls.py")<cr>
+nnoremap \4 :call RelatedFile ("admin.py")<cr>
+nnoremap \5 :call RelatedFile ("tests.py")<cr>
+nnoremap \6 :call RelatedFile ( "templates/" )<cr>
+nnoremap \7 :call RelatedFile ( "templatetags/" )<cr>
+nnoremap \8 :call RelatedFile ( "management/" )<cr>
+nnoremap \0 :e settings.py<cr>
+nnoremap \9 :e urls.py<cr>
+
+fun! RelatedFile(file)
+    #This is to check that the directory looks djangoish
+    if filereadable(expand("%:h"). '/models.py') || isdirectory(expand("%:h") . "/templatetags/")
+        exec "edit %:h/" . a:file
+        let g:last_relative_dir = expand("%:h") . '/'
+        return ''
+    endif
+    if g:last_relative_dir != ''
+        exec "edit " . g:last_relative_dir . a:file
+        return ''
+    endif
+    echo "Cant determine where relative file is : " . a:file
+    return ''
+endfun
+
+fun SetAppDir()
+    if filereadable(expand("%:h"). '/models.py') || isdirectory(expand("%:h") . "/templatetags/")
+        let g:last_relative_dir = expand("%:h") . '/'
+        return ''
+    endif
+endfun
+autocmd BufEnter *.py call SetAppDir()
