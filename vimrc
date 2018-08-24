@@ -98,114 +98,115 @@ let mapleader=","
 
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Bundle 'posva/vim-vue'
+Plugin 'posva/vim-vue'
 "解决中文输入法的问题
-Bundle "vim-scripts/fcitx.vim"
-Bundle "pangloss/vim-javascript"
-"Bundle "taglist.vim"
-Bundle "jsbeautify"
-Bundle "scrooloose/nerdtree"
-Bundle 'tpope/vim-surround'
-"Bundle 'hallettj/jslint.vim'
-Bundle 'kien/ctrlp.vim'
-Bundle 'ervandew/supertab'
-Bundle 'wincent/Command-T'
-Bundle 'Lokaltog/vim-powerline'
-"Bundle 'drmingdrmer/xptemplate'
-Bundle 'danro/rename.vim'
-Bundle 'tpope/vim-rails'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'scrooloose/nerdcommenter'
+Plugin 'vim-scripts/fcitx.vim'
+Plugin 'pangloss/vim-javascript'
+"Plugin "taglist.vim"
+Plugin 'jsbeautify'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-surround'
+"Plugin 'hallettj/jslint.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'ervandew/supertab'
+Plugin 'wincent/Command-T'
+Plugin 'Lokaltog/vim-powerline'
+"Plugin 'drmingdrmer/xptemplate'
+Plugin 'danro/rename.vim'
+Plugin 'tpope/vim-rails'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'scrooloose/nerdcommenter'
 "snipmate dependencies
-"Bundle "tomtom/tlib_vim"
+"Plugin 'tomtom/tlib_vim'
 "ack better performance than grep
-Bundle "mileszs/ack.vim"
+Plugin 'mileszs/ack.vim'
 "html/xml edit
-Bundle "sukima/xmledit"
-Bundle "vim-scripts/xml.vim"
+Plugin 'sukima/xmledit'
+Plugin 'vim-scripts/xml.vim'
 "MRU provides an easy access to a list of recently opend/edited files{
-Bundle "vim-scripts/mru.vim"
+Plugin 'vim-scripts/mru.vim'
 "html plugins
-Bundle "mattn/emmet-vim"
+Plugin 'mattn/emmet-vim'
 "git plugins
-Bundle "motemen/git-vim"
+Plugin 'motemen/git-vim'
 "popular git plugins
-Bundle "tpope/vim-fugitive"
+Plugin 'tpope/vim-fugitive'
 
 "ruby debugger
-Bundle "astashov/vim-ruby-debugger"
+Plugin 'astashov/vim-ruby-debugger'
 
 "ctags, how to use: ctags -e --language-force=ruby  --exclude=.git --exclude='*.log' -R * `bundle show --paths`
-Bundle "vim-scripts/ctags.vim"
+Plugin 'vim-scripts/ctags.vim'
 "tagbar outline plugins
-Bundle "majutsushi/tagbar"
+Plugin 'majutsushi/tagbar'
 
 "snipmate requires snippets
 "dependencies
-Bundle "tomtom/tlib_vim"
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "honza/vim-snippets"
-Bundle "garbas/vim-snipmate"
+Plugin 'tomtom/tlib_vim'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'honza/vim-snippets'
+Plugin 'garbas/vim-snipmate'
 "easymotion
-Bundle "Lokaltog/vim-easymotion"
+Plugin 'Lokaltog/vim-easymotion'
 "coffeescript
-Bundle "kchmck/vim-coffee-script"
+Plugin 'kchmck/vim-coffee-script'
 
-Bundle "vim-scripts/bufexplorer.zip"
+Plugin 'vim-scripts/bufexplorer.zip'
 
 "simple next move: ]b, [f
-Bundle "tpope/vim-unimpaired"
+Plugin 'tpope/vim-unimpaired'
 
 "repeat .
-Bundle "tpope/vim-repeat"
+Plugin 'tpope/vim-repeat'
 "Minibufferexpoler
-"Bundle fholgado/minibufexpl.vim"
+"Plugin fholgado/minibufexpl.vim"
 
 "c && c++
-Bundle "vim-scripts/c.vim"
+Plugin 'vim-scripts/c.vim'
 "es6
-Bundle "isRuslan/vim-es6"
+Plugin 'isRuslan/vim-es6'
 "react
-Bundle "mxw/vim-jsx"
-Bundle "justinj/vim-react-snippets"
-Bundle "SirVer/ultisnips"
+Plugin 'mxw/vim-jsx'
+Plugin 'justinj/vim-react-snippets'
+Plugin 'SirVer/ultisnips'
 
 
 "elixir plugins
-Bundle 'elixir-lang/vim-elixir'
-Bundle 'slashmili/alchemist.vim'
-Bundle "TimLang/vim-phoenix"
-Bundle 'tpope/vim-projectionist'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'slashmili/alchemist.vim'
+Plugin 'TimLang/vim-phoenix'
+Plugin 'tpope/vim-projectionist'
 
 "weixin
-Bundle 'chemzqm/wxapp.vim'
+Plugin 'chemzqm/wxapp.vim'
 
 "typescript
-Bundle 'leafgarland/typescript-vim'
-Bundle 'Shougo/vimproc.vim'
-Bundle 'Quramy/tsuquyomi'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'Shougo/vimproc.vim'
+Plugin 'Quramy/tsuquyomi'
 "PaperColor Theme
-Bundle 'NLKNguyen/papercolor-theme'
+Plugin 'NLKNguyen/papercolor-theme'
 
 "elm
-Bundle "lambdatoast/elm.vim"
+Plugin 'lambdatoast/elm.vim'
 
-Bundle "bronson/vim-trailing-whitespace"
+Plugin 'bronson/vim-trailing-whitespace'
 
-Bundle "fatih/vim-go"
+Plugin 'fatih/vim-go'
 
 "Python
-"Bundle 'vim-scripts/python.vim'
-"Bundle 'Valloric/YouCompleteMe'
-Bundle 'jmcomets/vim-pony'
+"Plugin 'vim-scripts/python.vim'
+"Plugin 'Valloric/YouCompleteMe'
+Plugin 'jmcomets/vim-pony'
 
-"Bundle 'tweekmonster/django-plus.vim'
-"Bundle 'mjbrownie/vim-htmldjango_omnicomplete'
-"Bundle 'vim-scripts/django.vim'
+"Plugin 'tweekmonster/django-plus.vim'
+"Plugin 'mjbrownie/vim-htmldjango_omnicomplete'
+"Plugin 'vim-scripts/django.vim'
 
+call vundle#end()
 "YouCompleteMe
 let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
 let g:ycm_use_ultisnips_completer = 1 " Default 1, just ensure
